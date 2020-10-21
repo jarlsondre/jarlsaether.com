@@ -1,6 +1,4 @@
 
-var data; 
-
 function fetchData() {
     var username = document.getElementById("username").value; 
     console.log(username); 
@@ -14,9 +12,8 @@ function fetchData() {
     .then(response => {
         return response.json(); 
     })
-    .then((myJson) => {
-        console.log(myJson);
-        data = myJson; 
+    .then((data) => {
+        console.log(data);
         document.getElementById("cod_paragraph").innerHTML =  formatFetchData(data);
         console.log(JSON.stringify(data));
     })
