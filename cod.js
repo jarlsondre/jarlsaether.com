@@ -6,7 +6,7 @@ function fetchData() {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "call-of-duty-modern-warfare.p.rapidapi.com",
-		"x-rapidapi-key": process.env.API_KEY
+		"x-rapidapi-key": '4cfa8dde81msh47a98d07c3bdc5bp1ebfcejsnee06d0ca5e7a'
 	}
     })
     .then(response => {
@@ -23,8 +23,6 @@ function fetchData() {
     });
 
 }
-
-console.log(process.env.API_KEY); 
 
 function formatFetchData(data) {
     var my_string = "";
