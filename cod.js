@@ -1,7 +1,20 @@
 
+
+function addToTable(data) {
+    var tableRef = document.getElementById('playerTable').getElementsByTagName('tbody')[0];
+        var newRow = tableRef.insertRow();
+        var i; 
+        for(i = 0; i < 4; i++) {
+            var newCell = newRow.insertCell(i);
+            var newText = document.createTextNode(data[i]);
+            newCell.appendChild(newText); 
+        }
+        
+}
+
+// Function for fetching the json data from Rapid API and displaying it
 function fetchData() {
     var username = document.getElementById("username").value; 
-    console.log(username); 
     fetch("https://rapidapi.p.rapidapi.com/warzone/" + username + "/psn", {
 	"method": "GET",
 	"headers": {
@@ -10,29 +23,21 @@ function fetchData() {
 	}
     })
     .then(response => {
-        return response.json(); 
+        return response.json();    
     })
-    .then((data) => {
-        console.log(data);
-        document.getElementById("cod_paragraph").innerHTML =  formatFetchData(data);
-        console.log(JSON.stringify(data));
+    .then( (data) => {
+        addToTable(formatFetchData(username, data)); 
     })
     .catch(err => {
         console.error(err);
-    });
-
+    }); 
 }
 
-function formatFetchData(data) {
-    var my_string = "";
-    my_string += "Wins: " + data["br_all"]["wins"] + ", ";
-    my_string += "Kills: " + data["br_all"]["kills"] + ", ";
-    my_string += "K/D: " + JSON.stringify(data["br_all"]["kdRatio"]).substring(0, 5); 
-    return my_string; 
+// Function for formatting the data gathered by the API, using only the data we care about
+// which currently is wins, kills and kd :-)
+function formatFetchData(username, data) {
+    return [username, data["br_all"]["wins"], data["br_all"]["kills"], JSON.stringify(data["br_all"]["kdRatio"]).substring(0, 5)]
 }
 
-function clearData() {
-    document.getElementById("cod_paragraph").innerHTML = ""; 
-}
 
 
