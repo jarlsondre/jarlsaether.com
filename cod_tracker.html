@@ -37,20 +37,36 @@
     <div style="text-align: center;">
         <h1>COD Stat fetcher</h1>
         <p>Fetches data for a PSN account. Enter your name and press 'fetch' to try!</p>
-
         <form>
             <label for="username">Username: </label>
             <input type="text" id="username" name="username"><br>
         </form>
+        <button onclick="getStats()">Get Stats</button>
+        <button onclick="getMatches()">Get Most Kills</button>
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h2>Leaderboard (wins)</h2>
+                    <table id="playerStatTable">
+                        <tr>
+                            <th>Username</th>
+                            <th>Wins</th>
+                            <th>Kills</th>
+                            <th>KD</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-6">
+                    <h2>Leaderboard (kills 20 matches)</h2>
+                    <table id="playerMostKillsTable">
+                        <tr>
+                            <th>Username</th>
+                            <th>highest kills</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
 
-        <button onclick="fetchData()">Fetch</button>
-        <h2>Leaderboard (wins)</h2>
-        <table id="playerTable">
-            <tr>
-                <th>Username</th>
-                <th>Wins</th>
-                <th>Kills</th>
-                <th>KD</th>
-            </tr>
-        </table>
+        
     </div>
