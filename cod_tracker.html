@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title> Jarl Sæther </title>
+    <title>CoD Tracker</title>
 
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">    
@@ -12,6 +12,9 @@
     <!--Bootstrap-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <!--CoD Tracker-->
+    <script src="cod.js"></script>
 
     <!--Navbar at the top of the site-->
     <nav class="navbar navbar-expand-lg bg-light navbar-light">
@@ -29,15 +32,9 @@
     </nav>
 
     <div style="text-align: center;">
-        <h1>Jarl Sæther</h1>
-        <p>This is the start of my website!</p>
-        <a href="cod_tracker.html">Cod Tracker</a>
+        <h1>COD Stat fetcher</h1>
+        <p>Currently fetches data for PSN account: FlyPlass. Click the button to try</p>
+        <button onclick="fetchData()">Fetch</button>
+        <p id="cod_paragraph"></p>
+        <button onclick="clearData()">Clear</button>
     </div>
-
-
-
-
-
-    
-    
-</body>
