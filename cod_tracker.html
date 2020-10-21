@@ -33,7 +33,13 @@
 
     <div style="text-align: center;">
         <h1>COD Stat fetcher</h1>
-        <p>Currently fetches data for PSN account: FlyPlass. Click the button to try</p>
+        <p>Fetches data for a PSN account. Enter your name and press 'fetch' to try!</p>
+
+        <form>
+            <label for="username">Username: </label>
+            <input type="text" id="username" name="username"><br>
+        </form>
+
         <button onclick="fetchData()">Fetch</button>
         <p id="cod_paragraph"></p>
         <button onclick="clearData()">Clear</button>

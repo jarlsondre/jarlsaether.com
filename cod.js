@@ -2,7 +2,9 @@
 var data; 
 
 function fetchData() {
-    fetch("https://rapidapi.p.rapidapi.com/warzone/Flyplass/psn", {
+    var username = document.getElementById("username").value; 
+    console.log(username); 
+    fetch("https://rapidapi.p.rapidapi.com/warzone/" + username + "/psn", {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "call-of-duty-modern-warfare.p.rapidapi.com",
