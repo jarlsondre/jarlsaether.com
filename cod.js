@@ -87,8 +87,18 @@ function sortPlayersOnMostKills() {
 
 // Function for fetching the json data from Rapid API and displaying it
 function getStats() {
-    var username = document.getElementById("username").value; 
-    fetch("https://rapidapi.p.rapidapi.com/warzone/" + username + "/psn", {
+    var orgUsername = document.getElementById("username").value; 
+    var platform = document.getElementById("platforms").value;
+    if (platform == "battle") {
+        var extraString = "%23";
+        var splitted = orgUsername.split("#");
+        var username = splitted[0] + extraString + splitted[1]; 
+        console.log(username); 
+    }
+    else {
+        var username = orgUsername; 
+    }
+    fetch("https://rapidapi.p.rapidapi.com/warzone/" + username + "/" + platform, {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "call-of-duty-modern-warfare.p.rapidapi.com",
@@ -99,7 +109,7 @@ function getStats() {
         return response.json();    
     })
     .then( (data) => {
-        var formatted = formatFetchData(username, data);
+        var formatted = formatFetchData(orgUsername, data);
         listOfPlayers.push(formatted); 
         sortPlayersOnWins(); 
         updatePlayerStatTable()
@@ -111,8 +121,18 @@ function getStats() {
 }
 
 function getMatches() {
-    var username = document.getElementById("username").value; 
-    fetch("https://rapidapi.p.rapidapi.com/warzone-matches/" + username + "/psn", {
+    var orgUsername = document.getElementById("username").value; 
+    var platform = document.getElementById("platforms").value;
+    if (platform == "battle") {
+        var extraString = "%23";
+        var splitted = orgUsername.split("#");
+        var username = splitted[0] + extraString + splitted[1]; 
+        console.log(username); 
+    }
+    else {
+        var username = orgUsername; 
+    }
+    fetch("https://rapidapi.p.rapidapi.com/warzone-matches/" + username + "/" + platform, {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "call-of-duty-modern-warfare.p.rapidapi.com",
@@ -128,7 +148,7 @@ function getMatches() {
     console.log("The most kills was", findMostKills(data));
     console.log(listOfPlayers); 
     for(var i = 0; i < listOfPlayers.length; i++) {
-        if (listOfPlayers[i][0] == username) {
+        if (listOfPlayers[i][0] == orgUsername) {
             listOfPlayers[i].push(findMostKills(data)); 
             sortPlayersOnMostKills(); 
             updatePlayerMostKillsTable(); 

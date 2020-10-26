@@ -36,13 +36,19 @@
 
     <div style="text-align: center;">
         <h1>COD Stat fetcher</h1>
-        <p>This will fetch your general stats, as well as your highest kills in your last 20 matches. <br>
-        To use, first type in your PSN username, then press 'Get Stats'. Then you must wait for <br>
-        around 2 seconds. Then press 'Get Most Kills'. Both leaderboards automatically sort themselves. </p>
+        <p>First choose your platform (Playstation Network, Xbox Live or Battle.net), and then <br>
+        type in your username in the field below. If you use your Battle.net tag then make sure <br>
+        to add '#' and your id behind it (e.g. jallis#2612). </p>
+        <p>Make sure to click on "Get Stats" before you click on "Get Most Kills"</p>
         <form>
             <label for="username">Username: </label>
             <input type="text" id="username" name="username"><br>
         </form>
+        <select name="platforms" id="platforms">
+            <option value="psn">PSN</option>
+            <option value="xbl">XBox Live</option>
+            <option value="battle">Battle.net</option>
+          </select>
         <button onclick="getStats()">Get Stats</button>
         <button onclick="getMatches()">Get Most Kills</button>
         <div class="container">
