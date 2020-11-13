@@ -37,7 +37,8 @@ function sort_data(data, col_number) {
         }
  
         // Round the kd to 3 decimals
-        ar[i][1][4] = ar[i][1][4].toFixed(3);
+        console.log(ar[i][1][4]);
+        ar[i][1][4] = parseFloat(ar[i][1][4]).toFixed(3);
     }
 
 
