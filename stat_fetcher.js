@@ -4,7 +4,7 @@ var sort_column = 1;
 var the_data; 
 
 function get_stats() {
-    fetch("http://128.199.56.250:8080/", {
+    fetch("https://128.199.56.250:8080/", {
         "method" : "GET"
     })
     .then(response => {
@@ -35,7 +35,7 @@ function sort_data(data, col_number) {
         if (splitted_name.length > 1) {
             ar[i][0] = splitted_name[0] + "#" + splitted_name[1]; 
         }
-
+ 
         // Round the kd to 3 decimals
         ar[i][1][4] = ar[i][1][4].toFixed(3);
     }
