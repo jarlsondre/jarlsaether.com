@@ -38,7 +38,10 @@
 
     <div style="text-align: center;">
         <h1>Warzone stat fetcher</h1>
-        <p>This is a page for fetching a leaderboard for KG E-Sport.</p>
+        <p>This is a page for fetching a leaderboard for KG E-Sport. If the table says "placeholder" then your browser rejects the fetch to the server. 
+            <br> In order to fix this you must directly access the server and accept the fetch. After this the leaderboard will load correctly. 
+            <br> You can access the server by typing "https://128.199.56.250:8080" in your browser and then accepting the unsecure connection. 
+            <br> Your browser marks this connection as unsecure because the https-certificate is self-signed.</p>
         <p>You can sort by a certain stat by clicking on the corresponding column.</p>
         <table class="table table-dark" style="width: 60%;" id="highscore_table">
             <thead>
